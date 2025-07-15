@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asaph Prase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Slab:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto Slab', serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .title-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .instrument-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .instrument-icon:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.7));
+        }
+        
+        .gradient-border {
+            position: relative;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, #fff, #888, #fff);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .rustic-texture {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiPjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjIiIHg9IjAiIHk9IjAiIGZpbGw9IiMzMzMiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiIG9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==');
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1s; }
+        .delay-3 { animation-delay: 1.5s; }
+    </style>
+</head>
+<body class="min-h-screen">
+    <nav class="bg-black border-b border-gray-800 fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="title-font text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">ASAPH PRASE</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-white hover:text-gray-300 transition">Sobre</a>
+                <a href="#members" class="text-white hover:text-gray-300 transition">Membros</a>
+                <a href="#music" class="text-white hover:text-gray-300 transition">Música</a>
+                <a href="#contact" class="text-white hover:text-gray-300 transition">Contato</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-full h-full opacity-20">
+                <div class="grid grid-cols-4 grid-rows-4 w-full h-full">
+                    <div class="border-r border-b border-gray-700"></div>
+                    <div class="border-r border-b border-gray-700"></div>
+                    <div class="border-r border-b border-gray-700"></div>
+                    <div class="border-b border-gray-700"></div>
+                    <div class="border-r border-gray-700"></div>
+                    <div class="border-r border-gray-700"></div>
+                    <div class="border-r border-gray-700"></div>
+                    <div class="border-gray-700"></div>
+                    <div class="border-r border-t border-gray-700"></div>
+                    <div class="border-r border-t border-gray-700"></div>
+                    <div class="border-r border-t border-gray-700"></div>
+                    <div class="border-t border-gray-700"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4">
+            <h1 class="title-font text-5xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">ASAPH PRASE</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+				"Por que dEle, por Ele e para Ele são todas as coisa"<br>"Tudo o que tem vida louve o Senhor! Louvai ao Senhor!"
+			</p>
+            <div class="flex justify-center space-x-4">
+                <!--button class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition">Ouvir Agora</button>
+                <button class="border border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">Próximo Show</button-->
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#about" class="text-white animate-bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 rustic-texture">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="title-font text-4xl font-bold mb-6">SOBRE A BANDA</h2>
+                    <p class="text-lg mb-6">Asaph Prase é uma experiência musical que combina elementos futuristas com uma estética rústica, criando um som único que desafia as convenções.</p>
+                    <p class="text-lg mb-6">Formada em 2024, um grupo de amigos músicos da banda da igreja ADBelem, do bairro CDHU San Martins (Campinas) rapidamente ganhou reconhecimento por suas performances intensas e instrumentalidade inovadoras.</p>
+                    <p class="text-lg">Nossa performance é uma jornada através da verdadeira essência da adoração com acompanhamento dos nosvos hinos, sempre mantendo uma conexão profunda com as raízes da expressão musical.</p>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="gradient-border rounded-lg overflow-hidden">
+                        <img src="./1.jpg" alt="Asaph Prase performing" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 border-2 border-white rounded-full flex items-center justify-center bg-black z-10">
+                        <span class="title-font text-xl">2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="members" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-4xl font-bold mb-16 text-center">MEMBROS</h2>
+			
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition duration-500 hover:shadow-white/10">
+                    <div class="relative h-64 bg-gray-800 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 512 512">
+							<path fill="currentColor" d="m111 58.3l-87.37.4l-.61 8.3L192.4 92.6l1.8-8.1zm310.8 18.8l-.3 29.7l5-.8l4.9.8l-.3-29.7zM96.33 92.8l-1.81 13l-33.17 26.4l1.84 115.6l6.16-40.4l9.55-2.3h.28l-1.03-65l31.95-25.4l2.7-19.4zm330.17 25.9l-66.6 10.4l.6 8.3h132l.6-8.3zm-66 33.3l-.6 8.3l66.6 10.4l66.6-10.4l-.6-8.3zm60.3 30.5l-.2 20.8c2.8.5 5.6 1.2 8.5 1.8l3.3.8l-.2-23.4l-5.7.9zm-287.4 30.7c-16.5-.2-33.5 1.9-51.1 6.1l-2.86 18.8c23.26-3.3 75.96-6.9 127.56 14.6c4-1.6 8.2-3.1 12.4-4.3l1.2-8c-26.6-18.2-55.8-26.8-87.2-27.2m241.2 0c-31.4.4-60.6 9-87.2 27.2l1.2 8c4.2 1.2 8.4 2.7 12.4 4.3c51.6-21.5 104.3-17.9 127.6-14.6l-2.9-18.8c-17.6-4.2-34.6-6.3-51.1-6.1m-258.1 39c-17.91 0-32.1 1.8-39.69 3.1l-7.05 46.3l72.94 11.1c10.1-20.3 25.5-37.5 44.5-49.6c-25.4-8.5-50.4-10.9-70.7-10.9m275 0c-20.3 0-45.3 2.4-70.7 10.9c19 12.1 34.4 29.3 44.5 49.6l72.9-11.1l-7-46.3c-7.6-1.3-21.8-3.1-39.7-3.1m-137.5 10c-49.9 0-90.4 40.5-90.4 90.4S204.1 443 254 443s90.4-40.5 90.4-90.4s-40.5-90.4-90.4-90.4M64.27 315.5l1.36 85.5l-46.73 87h18.94l33.24-62l15.19 62h17.23l-21.19-86l-1.33-84zM433.6 317l-14.2 2.2l-.8 74.1l-24.2 55.7l7.4 25l24.7-57l30.9 71h18.2l-41.2-94.7zm-279.7 11.6c-4.7 12.1-7.2 25.2-7.2 38.9C146.7 427 194.8 475 254 475s107.3-48 107.3-107.5c0-13.7-2.5-26.8-7.2-38.9c1.8 7.7 2.8 15.8 2.8 24C356.9 409 310.8 456 254 456s-102.9-47-102.9-103.4c0-8.2 1-16.3 2.8-24m-18 77.4l-20.2 82h25.7l11.8-48c-7.4-11-13.3-22-17.3-34m236.2 0c-4 12-9.9 23-17.3 34l11.8 48h25.7z"/>
+						</svg>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Gabriel Souza</h3>
+                        <p class="text-gray-400 uppercase text-sm mb-4">BATERISTA</p>
+                        <p class="text-gray-300">Criando ritmos complexos que fundem batidas ancestrais com padrões eletrônicos.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition duration-500 hover:shadow-white/10">
+                    <div class="relative h-64 bg-gray-800 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 32 32">
+							<g fill="currentColor"><path d="m13.735 19.496l-1.53-1.53a.61.61 0 0 0-.85 0a.61.61 0 0 0 0 .85l1.53 1.53c.23.23.61.23.85 0s.24-.61 0-.85m-3.54.49l1.53 1.53c.23.23.23.61 0 .85a.61.61 0 0 1-.85 0l-1.53-1.53a.61.61 0 0 1 0-.85a.61.61 0 0 1 .85 0"/><path d="M27.485 2.416a.683.683 0 0 0-.9-.36c-.35.15-.51.55-.36.9c.07.16.19.27.34.34c.13.06.24.15.3.28l.16.368l-.933.43l-.157-.358a.58.58 0 0 1-.01-.41c.04-.14.04-.31-.02-.47a.683.683 0 0 0-.9-.36c-.35.15-.51.55-.36.9c.07.16.19.27.34.34c.13.06.24.15.3.28l.164.375l-.943.435l-.16-.37a.53.53 0 0 1-.01-.41a.64.64 0 0 0-.02-.47a.683.683 0 0 0-.9-.36c-.35.15-.51.55-.36.9c.07.16.19.27.34.34c.13.06.24.15.3.28l.167.386l-.378.174a.78.78 0 0 0-.233 1.157l-.077-.077l-8.558 8.558a3.37 3.37 0 0 1 .728-3.588c.6-.61.63-1.59.03-2.2s-1.59-.61-2.19-.01c-.93.93-1.52 2.08-1.76 3.29c-.27 1.36-1.42 2.35-2.8 2.48c-1.66.15-3.27.86-4.53 2.13c-2.83 2.86-2.79 7.57.1 10.37c2.85 2.77 7.41 2.74 10.23-.08a7.3 7.3 0 0 0 2.1-4.53a3.1 3.1 0 0 1 2.49-2.77c.55-.11 1.09-.3 1.61-.56c.76-.38 1.07-1.31.69-2.07a1.546 1.546 0 0 0-2.07-.69a3.34 3.34 0 0 1-2.755.115l8.562-8.561a.78.78 0 0 0 1.143-.134l1.08-1.81c.12-.2.36-.29.58-.2c.57.22 1.24.1 1.68-.38c.54-.58.55-1.49.02-2.07c-.5-.549-1.206-.578-1.892-.293l-.158-.347a.58.58 0 0 1-.01-.41c.06-.15.06-.32-.01-.48m-14.28 12.78c.306.177.526.473.604.826l-.164.164c-.25.25-.25.65 0 .89l.99.99c.244.244.631.25.873.018c.29.078.735.141 1.023.182l.204.03q.037.007.07.01t.07.01l.017.002c.196.022.753.085 1.403-.042q.063-.011.128-.025c.367-.074.795-.16.982.375c.07.18.01.39-.25.56c-.15.1-.52.24-.69.28c-.82.19-1.4.52-1.94 1.11c-.72.68-1.16 1.5-1.32 2.39c-.12.68-.24 1.35-.52 1.97c-.3.64-.7 1.22-1.21 1.73c-.58.59-1.26 1.03-2.01 1.33c-.7.28-1.51-.05-1.78-.75c-.06-.15-.09-.32-.09-.48c.003-.252.063-.535.126-.832c.16-.751.338-1.594-.336-2.268l-2.25-2.25c-1-1-1.02-2.63-.03-3.65l.02-.02c.79-.8 1.83-1.21 2.92-1.25c.65-.03 1.21-.36 1.52-.87c.25-.41.71-.63 1.18-.58c.16.02.32.07.46.15m-3.84 9.57c.1.1.1.26-.01.35l-1.06 1.06c-.1.1-.26.1-.36 0l-2.41-2.41c-.1-.1-.1-.26 0-.36l1.07-1.05c.1-.1.26-.1.36 0z"/></g>
+						</svg>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Ed. Bernardo</h3>
+                        <p class="text-gray-400 uppercase text-sm mb-4">BAIXISTA</p>
+                        <p class="text-gray-300">Linhas de baixo que ecoam da alma, conectando melodia e ritmo.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition duration-500 hover:shadow-white/10">
+                    <div class="relative h-64 bg-gray-800 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 64 64">
+							<circle cx="17.067" cy="56.547" r="1.844" fill="currentColor"/><path fill="currentColor" d="m24.759 44.225l-4.987-4.982l2.443-2.445L27.2 41.78zm-9.771-.199l2.444-2.443l4.983 4.984l-2.444 2.444zm-1.565 2.787l3.86 3.86l-1.393 1.393l-3.86-3.86zm7.512 5.213a2.306 2.306 0 1 0 3.262 0c-.901-.9-2.361-.9-3.262 0"/><path fill="currentColor" d="m59.897 12.03l-.496-.495c3.267-3.104 3.558-3.941.281-7.216c-3.277-3.28-4.115-2.986-7.218.28l-.494-.495c.433-.53.614-1.058.135-1.537c-.59-.589-1.25-.19-1.903.463c-.652.652-1.049 1.311-.461 1.898c.48.479 1.006.301 1.537-.132l.516.516c-.753.803-1.628 1.742-2.678 2.821l-.588-.588c.434-.531.611-1.057.134-1.537c-.589-.586-1.249-.191-1.899.459c-.654.654-1.051 1.313-.461 1.902c.479.479 1.006.298 1.537-.136l.595.595c-.115.116-.218.223-.337.342c-.916.916-1.708 1.713-2.391 2.433l-.617-.618c.432-.531.611-1.057.131-1.535c-.588-.588-1.248-.193-1.898.459c-.652.654-1.051 1.313-.461 1.9c.48.48 1.006.302 1.537-.132l.643.645c-1.969 2.182-2.646 3.573-1.898 5.143L30.276 29.606c-1.586-1.542-3.384-2.817-6.171-2.604c-6.663.504-2.295 8.092-10.83 8.66c-3.052.201-5.95.871-8.046 2.972c-5.33 5.328-3.626 12.642 1.934 18.204c5.559 5.56 12.874 7.261 18.203 1.934c2.779-2.777 2.686-7.816 3.615-10.827c1.199-3.891 7.463-2.574 7.176-6.902c-.025-.408-.125-.666-.281-.82c-.779-.779-2.963 1.078-4.276-.236c-.412-.41-.736-1.135-.906-2.34L46.535 20.86c1.57.749 2.963.07 5.146-1.899l.643.643c-.434.532-.611 1.059-.135 1.539c.588.588 1.25.191 1.902-.463c.652-.65 1.049-1.311.459-1.9c-.479-.478-1.005-.298-1.536.135l-.617-.616c.721-.683 1.517-1.475 2.433-2.392c.119-.119.227-.221.344-.337l.591.594c-.433.532-.612 1.058-.131 1.538c.588.588 1.247.191 1.899-.461c.648-.652 1.047-1.313.459-1.9c-.478-.479-1.004-.3-1.535.132l-.587-.587c1.078-1.051 2.017-1.926 2.819-2.677l.517.515c-.435.531-.612 1.058-.132 1.537c.588.586 1.247.191 1.898-.462c.654-.652 1.05-1.313.462-1.9c-.48-.481-1.006-.301-1.537.131m-27.67 30.605q-.134.057-.281.117c-1.775.73-4.211 1.729-5.078 4.541c-.318 1.027-.516 2.166-.725 3.375c-.412 2.382-.881 5.081-2.339 6.54c-2.039 2.039-4.439 2.875-7.139 2.49c-2.643-.375-5.464-1.945-7.941-4.424c-2.478-2.477-4.048-5.296-4.422-7.938c-.386-2.699.453-5.1 2.489-7.139c1.398-1.398 3.443-2.117 6.631-2.329c5.936-.393 7.287-3.85 8.181-6.137c.698-1.789.934-2.393 2.671-2.525c1.807-.137 3.018.598 4.394 1.918l-4.325 4.082l4.452 4.454l.08-.085c.272.814.653 1.467 1.162 1.976a3.7 3.7 0 0 0 2.19 1.084m15.546-28.209a1.283 1.283 0 1 1-1.813-1.816a1.283 1.283 0 0 1 1.813 1.816m1.643-5.273c.502-.5 1.314-.5 1.817 0a1.286 1.286 0 0 1-.002 1.814c-.503.502-1.315.5-1.813 0a1.28 1.28 0 0 1-.002-1.814m1.987 8.9a1.286 1.286 0 0 1-1.817-1.816c.504-.5 1.315-.5 1.817.002a1.28 1.28 0 0 1 0 1.814m1.469-12.355a1.28 1.28 0 0 1 1.814.002a1.283 1.283 0 1 1-1.814-.002m1.986 8.898a1.284 1.284 0 0 1-1.815-1.815c.5-.498 1.313-.5 1.816 0a1.285 1.285 0 0 1-.001 1.815m3.455-3.456A1.28 1.28 0 1 1 56.5 9.328c.5-.504 1.313-.502 1.814 0s.503 1.31-.001 1.812"/>
+						</svg>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Pedro Algusto</h3>
+                        <p class="text-gray-400 uppercase text-sm mb-4">GUITARRISTA</p>
+                        <p class="text-gray-300">Riffs que cortam como facas e solos que contam histórias sem palavras.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition duration-500 hover:shadow-white/10">
+                    <div class="relative h-64 bg-gray-800 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 32 32">
+							<path fill="currentColor" d="M3.036 2h26.928C30.536 2 31 2.448 31 3v25c0 1.105-.927 2-2.071 2H4.07C2.927 30 2 29.105 2 28V3c0-.552.464-1 1.036-1M30 9h-5v12a1 1 0 0 1-1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1zm-8 0h-4v12a1 1 0 0 1-1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-6a1 1 0 0 1-1-1zm-7 0h-4v12a1 1 0 0 1-1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-6a1 1 0 0 1-1-1zM8 9H3v19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-6a1 1 0 0 1-1-1z"/>
+						</svg>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Murilo Moreno</h3>
+                        <p class="text-gray-400 uppercase text-sm mb-4">TECLADISTA</p>
+                        <p class="text-gray-300">Camadas de sintetizadores que transportam o ouvinte para outras dimensões.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--section id="music" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-4xl font-bold mb-16 text-center">ÚLTIMOS LANÇAMENTOS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="gradient-border rounded-lg overflow-hidden">
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Album cover" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <button class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center hover:scale-110 transition">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">CRÔNICAS DO FUTURO</h3>
+                        <p class="text-gray-400 mb-4">2023 • Álbum</p>
+                        <p class="text-gray-300">Uma jornada sonora através de paisagens futuristas e memórias ancestrais.</p>
+                    </div>
+                </div>
+                
+                <div class="gradient-border rounded-lg overflow-hidden">
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Single cover" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <button class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center hover:scale-110 transition">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">MÁQUINAS DE BARRO</h3>
+                        <p class="text-gray-400 mb-4">2022 • Single</p>
+                        <p class="text-gray-300">A fusão paradoxal da tecnologia com elementos orgânicos em forma de música.</p>
+                    </div>
+                </div>
+                
+                <div class="gradient-border rounded-lg overflow-hidden">
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="EP cover" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <button class="bg-white text-black rounded-full w-16 h-16 flex items-center justify-center hover:scale-110 transition">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">RUÍNAS DIGITAIS</h3>
+                        <p class="text-gray-400 mb-4">2021 • EP</p>
+                        <p class="text-gray-300">Explorando a nostalgia em um mundo cada vez mais tecnológico.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="border border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">VER TODOS OS LANÇAMENTOS</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-4xl font-bold mb-16 text-center">PRÓXIMOS SHOWS</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="gradient-border rounded-lg overflow-hidden mb-8">
+                    <div class="p-6 flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="title-font text-2xl font-bold">FESTIVAL FUTURO PRESENTE</h3>
+                            <p class="text-gray-400">São Paulo, SP • 15/12/2023</p>
+                        </div>
+                        <button class="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 transition">INGRESSOS</button>
+                    </div>
+                </div>
+                
+                <div class="gradient-border rounded-lg overflow-hidden mb-8">
+                    <div class="p-6 flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="title-font text-2xl font-bold">TEMPESTADE ELETROMAGNÉTICA</h3>
+                            <p class="text-gray-400">Rio de Janeiro, RJ • 22/01/2024</p>
+                        </div>
+                        <button class="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 transition">INGRESSOS</button>
+                    </div>
+                </div>
+                
+                <div class="gradient-border rounded-lg overflow-hidden">
+                    <div class="p-6 flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="title-font text-2xl font-bold">NOITE DOS CIBORGUE</h3>
+                            <p class="text-gray-400">Belo Horizonte, MG • 05/03/2024</p>
+                        </div>
+                        <button class="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 transition">INGRESSOS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section-->
+
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="title-font text-4xl font-bold mb-6">ENTRE EM CONTATO</h2>
+                <p class="text-xl mb-12">Para contratos, entrevistas ou simplesmente para compartilhar suas impressões sobre nossa música.</p>
+                
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                    <div>
+                        <label for="name" class="block text-gray-400 mb-2">Nome</label>
+                        <input type="text" id="name" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-white">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-400 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-white">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="subject" class="block text-gray-400 mb-2">Assunto</label>
+                        <input type="text" id="subject" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-white">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="message" class="block text-gray-400 mb-2">Mensagem</label>
+                        <textarea id="message" rows="5" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-white"></textarea>
+                    </div>
+                    <div class="md:col-span-2 text-center">
+                        <button type="submit" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition">ENVIAR MENSAGEM</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="title-font text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">ASAPH PRASE</span>
+                    <p class="text-gray-400 mt-2">Louvores para o futuro com raízes no passado.</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-white hover:text-gray-300 text-xl">
+                        <i class="fab fa-spotify"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-xl">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-xl">
+                        <i class="fab fa-bandcamp"></i>
+                    </a>
+                </div>
+                
+                <div class="text-gray-400 text-sm">
+                    <p>&copy; 2023 Asaph Prase. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
